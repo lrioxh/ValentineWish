@@ -36,9 +36,11 @@ a:active {
 .floating-heart {
   position: absolute;
   font-size: 20px;
+  z-index: 100; /* 确保比 .girl-dp 高 */
   color: rgb(255, 0, 72);
   opacity: 0.8;
   pointer-events: none; /* 不影响点击 */
+  transition: transform 0.5s ease-out;
 }
 
 .container {

@@ -21,7 +21,7 @@ function createHeart() {
     opacity: 0,
     scale: 0.8 + Math.random() * 0.4, // 随机大小
     rotation: Math.random() * 30 - 15, // 轻微旋转
-    ease: "easeOut",
+    ease: "power1.out",
     onComplete: () => heart.remove() // 动画结束后删除
   });
 }
@@ -88,7 +88,8 @@ const animationTimeline = () => {
     skewX: "-15deg",
   };
 
-  const tl = new TimelineMax();
+  // const tl = new TimelineMax();
+  const tl = gsap.timeline();
 
   tl.to(".container", 0.1, {
     visibility: "visible",
