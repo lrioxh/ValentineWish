@@ -28,9 +28,9 @@ function createHeart() {
 
 function startHearts() {
   // 让爱心动画与 .girl-dp 相关动画同步
-  let heartInterval = setInterval(createHeart, 300); // 每 300ms 生成一个 ❤️
+  let heartInterval = setInterval(createHeart, 200); // 每 200ms 生成一个 ❤️
   
-  setTimeout(() => clearInterval(heartInterval), 5000); // 5s 后停止生成爱心
+  setTimeout(() => clearInterval(heartInterval), 30000); // 30s 后停止生成爱心
 }
 
 // Animation Timeline
