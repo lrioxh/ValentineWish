@@ -43,34 +43,33 @@ a:active {
   transition: transform 0.5s ease-out;
 }
 
-.github-footer {
+.github-mini {
   position: fixed;
-  bottom: 20px;
+  bottom: 15px;
   left: 50%;
   transform: translateX(-50%);
-  background: #24292e;
-  padding: 10px 20px;
-  border-radius: 25px;
+  background: #333;
+  padding: 5px 12px;
+  border-radius: 16px;
+  font-size: 12px;
   display: flex;
   align-items: center;
-  transition: background 0.3s ease;
+  transition: background 0.2s ease;
 }
 
-.github-footer a {
+.github-mini a {
   color: white;
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  font-weight: bold;
+  gap: 5px;
 }
 
-.github-footer:hover {
+.github-mini:hover {
   background: #0366d6;
 }
 
-.github-footer svg {
+.github-mini svg {
   fill: white;
 }
 

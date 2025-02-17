@@ -19,7 +19,7 @@ function createHeart() {
     duration: 2.5,
     y: -120 - Math.random() * 200, // 随机向上漂浮
     opacity: 0,
-    scale: 0.8 + Math.random() * 0.8, // 随机大小
+    scale: 0.8 + Math.random() , // 随机大小
     rotation: Math.random() * 30 - 15, // 轻微旋转
     ease: "power1.out",
     onComplete: () => heart.remove() // 动画结束后删除
@@ -28,9 +28,9 @@ function createHeart() {
 
 function startHearts() {
   // 让爱心动画与 .girl-dp 相关动画同步
-  let heartInterval = setInterval(createHeart, 200); // 每 200ms 生成一个 ❤️
+  let heartInterval = setInterval(createHeart, 203); // 每 200ms 生成一个 ❤️
   
-  setTimeout(() => clearInterval(heartInterval), 30000); // 30s 后停止生成爱心
+  setTimeout(() => clearInterval(heartInterval), 20000); // 20s 后停止生成爱心共99个
 }
 
 // Animation Timeline
