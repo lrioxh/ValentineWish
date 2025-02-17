@@ -13,11 +13,30 @@ const animationTimeline = () => {
     .join("</span><span>")}</span`;
 
   const wishText = document.querySelector(".wish h5");
-  const newHtml = wishText.textContent
-    .split("")
-    .map(char => `<span>${char}</span>`)
-    .join("");
-  wishText.innerHTML = newHtml;
+  // 遍历 wishText 的子节点，确保只拆分纯文本，保留 HTML 结构
+  function wrapTextWithSpans(element) {
+    element.childNodes.forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        // 只处理文本节点，拆分成单个字符
+        const newHtml = node.textContent
+          .split("")
+          .map(char => (char.trim() ? `<span>${char}</span>` : char)) // 只包裹非空字符
+          .join("");
+        const spanWrapper = document.createElement("span");
+        spanWrapper.innerHTML = newHtml;
+        node.replaceWith(spanWrapper);
+      } else if (node.nodeType === Node.ELEMENT_NODE) {
+        // 如果是元素节点（如 <br> <a>），递归处理子元素
+        wrapTextWithSpans(node);
+      }
+    });
+  }
+  wrapTextWithSpans(wishText);
+  // const newHtml = wishText.textContent
+  //   .split("")
+  //   .map(char => `<span>${char}</span>`)
+  //   .join("");
+  // wishText.innerHTML = newHtml;
 
   const ideaTextTrans = {
     opacity: 0,
@@ -114,7 +133,7 @@ const animationTimeline = () => {
     .from(".idea-3", 0.7, ideaTextTrans)
     .to(".idea-3 strong", 0.5, {
       scale: 1.2,
-      x: 10,
+      x: -10,
       backgroundColor: "rgb(21, 161, 237)",
       color: "#fff",
     })
@@ -134,6 +153,12 @@ const animationTimeline = () => {
       },
       "+=0.5"
     )
+    .to(".idea-5 strong", 0.5, {
+      scale: 1.2,
+      x: -5,
+      backgroundColor: "rgb(237, 21, 86)",
+      color: "#fff",
+    })
     .to(
       ".idea-5 span",
       0.7,
@@ -252,7 +277,7 @@ const animationTimeline = () => {
       "party"
     )
     .staggerFrom(
-      ".wish h5 span",
+      ".wish h5 span span",
       0.1,
       { opacity: 0, y: 10, ease: Power2.easeOut },
       0.05,
