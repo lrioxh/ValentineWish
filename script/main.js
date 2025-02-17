@@ -227,12 +227,12 @@ const animationTimeline = () => {
       },
       "-=2"
     )
-    .to(".girl-dp", 1, {
-      scale: 1.1,
-      repeat: -1,
-      yoyo: true,
-      ease: Power1.easeInOut
-    })
+    // .to(".girl-dp", 1, {
+    //   scale: 1.1,
+    //   repeat: -1,
+    //   yoyo: true,
+    //   ease: Power1.easeInOut
+    // })
     .from(".hat", 0.5, {
       x: -100,
       y: 350,
@@ -354,7 +354,35 @@ const fetchData = () => {
 //     resolve("Fetch done!");
 //   });
 // };
+function createHeart() {
+  const img = document.getElementById("imagePath");
+  const imgRect = img.getBoundingClientRect();
 
+  const heart = document.createElement("div");
+  heart.innerHTML = "❤️";
+  heart.classList.add("floating-heart");
+  document.body.appendChild(heart);
+
+  // 随机位置（围绕 girl-dp 图片）
+  const startX = imgRect.left + Math.random() * imgRect.width;
+  const startY = imgRect.top + imgRect.height - 20; // 从图片下部浮起
+
+  heart.style.left = `${startX}px`;
+  heart.style.top = `${startY}px`;
+
+  // GSAP 动画：向上漂浮 + 渐变消失
+  gsap.to(heart, {
+    duration: 2,
+    y: -100 - Math.random() * 50, // 随机向上漂浮
+    opacity: 0,
+    scale: 0.8 + Math.random() * 0.4, // 随机大小
+    rotation: Math.random() * 30 - 15, // 轻微旋转
+    ease: "easeOut",
+    onComplete: () => heart.remove() // 动画结束后删除
+  });
+}
+// 定时生成心形
+setInterval(createHeart, 300); // 每 300ms 生成一个 ❤️
 // resolveFetch().then(
 animationTimeline();
 // );
