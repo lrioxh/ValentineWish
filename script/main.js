@@ -9,17 +9,17 @@ function createHeart() {
 
   // 随机位置（围绕 girl-dp 图片）
   const startX = imgRect.left + Math.random() * imgRect.width;
-  const startY = imgRect.top + imgRect.height - 20; // 从图片下方浮起
+  const startY = imgRect.top + imgRect.height + Math.random()*10 - 25; // 从图片下方浮起
 
   heart.style.left = `${startX}px`;
   heart.style.top = `${startY}px`;
 
   // GSAP 动画：向上漂浮 + 渐变消失
   gsap.to(heart, {
-    duration: 2,
-    y: -120 - Math.random() * 120, // 随机向上漂浮
+    duration: 2.5,
+    y: -120 - Math.random() * 200, // 随机向上漂浮
     opacity: 0,
-    scale: 0.8 + Math.random() * 0.4, // 随机大小
+    scale: 0.8 + Math.random() * 0.8, // 随机大小
     rotation: Math.random() * 30 - 15, // 轻微旋转
     ease: "power1.out",
     onComplete: () => heart.remove() // 动画结束后删除
