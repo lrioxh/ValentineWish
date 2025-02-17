@@ -10,14 +10,14 @@ a {
   color: black; /* 默认颜色 */
   /* text-decoration: none; 移除下划线 */
 }
+a:visited {
+  color: gray; /* 访问过的链接颜色 */
+}
 a:hover {
   color: rgb(255, 0, 93); /* 鼠标悬停时的颜色 */
 }
 a:active {
   color: rgb(0, 204, 255); /* 点击时的颜色 */
-}
-a:visited {
-  color: gray; /* 访问过的链接颜色 */
 }
 .container {
   height: 100vh;

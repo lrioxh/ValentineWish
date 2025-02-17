@@ -155,7 +155,7 @@ const animationTimeline = () => {
     )
     .to(".idea-5 strong", 0.5, {
       scale: 1.2,
-      x: 5,
+      x: 10,
       backgroundColor: "rgb(237, 21, 86)",
       color: "#fff",
     }, "sameTime")
