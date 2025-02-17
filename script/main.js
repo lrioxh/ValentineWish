@@ -158,7 +158,8 @@ const animationTimeline = () => {
       x: 5,
       backgroundColor: "rgb(237, 21, 86)",
       color: "#fff",
-    })
+    }, "sameTime")
+    .to(".idea-4", 0.5, ideaTextTransLeave, "sameTime")
     .to(
       ".idea-5 span",
       0.7,
