@@ -3,12 +3,6 @@ const animationTimeline = () => {
   // Spit chars that needs to be animated individually
   // const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
   const hbd = document.getElementsByClassName("wish-hbd")[0];
-  const wishText = document.querySelector(".wish h5");
-  const newHtml = wishText.textContent
-    .split("")
-    .map(char => `<span>${char}</span>`)
-    .join("");
-  wishText.innerHTML = newHtml;
   
   // textBoxChars.innerHTML = `<span>${textBoxChars.innerHTML
   //   .split("")
@@ -17,6 +11,13 @@ const animationTimeline = () => {
   hbd.innerHTML = `<span>${hbd.innerHTML
     .split("")
     .join("</span><span>")}</span`;
+
+  const wishText = document.querySelector(".wish h5");
+  const newHtml = wishText.textContent
+    .split("")
+    .map(char => `<span>${char}</span>`)
+    .join("");
+  wishText.innerHTML = newHtml;
 
   const ideaTextTrans = {
     opacity: 0,
@@ -106,10 +107,10 @@ const animationTimeline = () => {
     //   },
     //   "+=0.7"
     // )
-    .from(".idea-1", 0.7, ideaTextTrans)
-    .to(".idea-1", 0.7, ideaTextTransLeave, "+=1.5")
-    .from(".idea-2", 0.7, ideaTextTrans)
-    .to(".idea-2", 0.7, ideaTextTransLeave, "+=1.5")
+    .from(".idea-1", 0.9, ideaTextTrans)
+    .to(".idea-1", 0.9, ideaTextTransLeave, "+=1.5")
+    .from(".idea-2", 0.9, ideaTextTrans)
+    .to(".idea-2", 0.9, ideaTextTransLeave, "+=1.5")
     .from(".idea-3", 0.7, ideaTextTrans)
     .to(".idea-3 strong", 0.5, {
       scale: 1.2,
@@ -118,7 +119,7 @@ const animationTimeline = () => {
       color: "#fff",
     })
     .to(".idea-3", 0.7, ideaTextTransLeave, "+=1.5")
-    .from(".idea-4", 0.7, ideaTextTrans)
+    .from(".idea-4", 0.5, ideaTextTrans)
     .to(".idea-4", 0.7, ideaTextTransLeave, "+=1.5")
     .from(
       ".idea-5",
@@ -314,11 +315,13 @@ const fetchData = () => {
 };
 
 // Run fetch and animation in sequence
-const resolveFetch = () => {
-  return new Promise((resolve, reject) => {
-    fetchData();
-    resolve("Fetch done!");
-  });
-};
+// const resolveFetch = () => {
+//   return new Promise((resolve, reject) => {
+//     fetchData();
+//     resolve("Fetch done!");
+//   });
+// };
 
-resolveFetch().then(animationTimeline());
+// resolveFetch().then(
+animationTimeline();
+// );
