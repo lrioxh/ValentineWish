@@ -6,6 +6,73 @@ body {
   margin: 0;
   font-family: "Work Sans", sans-serif;
 }
+a {
+  color: black; /* 默认颜色 */
+  /* text-decoration: none; 移除下划线 */
+}
+a:visited {
+  color: gray; /* 访问过的链接颜色 */
+}
+a:hover {
+  color: rgb(255, 0, 93); /* 鼠标悬停时的颜色 */
+}
+a:active {
+  color: rgb(0, 204, 255); /* 点击时的颜色 */
+}
+
+
+@keyframes heartBeat {
+  0% {
+      transform: scale(1); /* 原始大小 */
+  }
+  50% {
+      transform: scale(1.2); /* 放大 */
+  }
+  100% {
+      transform: scale(1); /* 恢复原始大小 */
+  }
+}
+
+.floating-heart {
+  position: absolute;
+  font-size: 20px;
+  z-index: 100; /* 确保比 .girl-dp 高 */
+  color: rgb(255, 0, 72);
+  opacity: 0.8;
+  pointer-events: none; /* 不影响点击 */
+  transition: transform 0.5s ease-out;
+}
+
+.github-mini {
+  position: fixed;
+  bottom: 15px;
+  left: 50%;
+  z-index: 1000;
+  transform: translateX(-50%);
+  background: #333;
+  padding: 5px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  transition: background 0.2s ease;
+}
+
+.github-mini a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.github-mini:hover {
+  background: #0366d6;
+}
+
+.github-mini svg {
+  fill: white;
+}
 
 .container {
   height: 100vh;
@@ -103,6 +170,11 @@ body {
 }
 
 .idea-5 span,
+.idea-5 strong {
+  padding: 3px 1px;
+  border-radius: 3px;
+  display: inline-block;
+}
 .idea-6 span,
 .wish-hbd span {
   display: inline-block;
@@ -120,6 +192,9 @@ body {
   display: inline-block;
   max-width: 45%;
   height: auto;
+  /* object-fit: cover; /* 确保图片填充 */
+  /* clip-path: url(#heartClip); */ 
+  /* animation: heartBeat 2s infinite; 2秒循环一次 */
 }
 
 .six .hat {
@@ -298,3 +373,4 @@ body {
     font-weight: lighter;
   }
 }
+
