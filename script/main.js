@@ -8,9 +8,9 @@ const animationTimeline = () => {
   //   .split("")
   //   .join("</span><span>")}</span`;
 
-  hbd.innerHTML = `<span>${hbd.innerHTML
-    .split("")
-    .join("</span><span>")}</span`;
+  // hbd.innerHTML = `<span>${hbd.innerHTML
+  //   .split("")
+  //   .join("</span><span>")}</span`;
 
   const wishText = document.querySelector(".wish h5");
   // 遍历 wishText 的子节点，确保只拆分纯文本，保留 HTML 结构
@@ -32,6 +32,7 @@ const animationTimeline = () => {
     });
   }
   wrapTextWithSpans(wishText);
+  wrapTextWithSpans(hbd);
   // const newHtml = wishText.textContent
   //   .split("")
   //   .map(char => `<span>${char}</span>`)
@@ -233,7 +234,7 @@ const animationTimeline = () => {
       opacity: 0,
     })
     .staggerFrom(
-      ".wish-hbd span",
+      ".wish-hbd span span",
       0.7,
       {
         opacity: 0,
@@ -246,7 +247,7 @@ const animationTimeline = () => {
       0.1
     )
     .staggerFromTo(
-      ".wish-hbd span",
+      ".wish-hbd span span",
       0.7,
       {
         scale: 1.4,
