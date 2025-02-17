@@ -3,7 +3,13 @@ const animationTimeline = () => {
   // Spit chars that needs to be animated individually
   // const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
   const hbd = document.getElementsByClassName("wish-hbd")[0];
-
+  const wishText = document.querySelector(".wish h5");
+  const newHtml = wishText.textContent
+    .split("")
+    .map(char => `<span>${char}</span>`)
+    .join("");
+  wishText.innerHTML = newHtml;
+  
   // textBoxChars.innerHTML = `<span>${textBoxChars.innerHTML
   //   .split("")
   //   .join("</span><span>")}</span`;
@@ -228,14 +234,27 @@ const animationTimeline = () => {
       0.1,
       "party"
     )
+    // .from(
+    //   ".wish h5",
+    //   0.5,
+    //   {
+    //     opacity: 0,
+    //     y: 10,
+    //     skewX: "-15deg",
+    //   },
+    //   "party"
+    // )
     .from(
       ".wish h5",
-      0.5,
-      {
-        opacity: 0,
-        y: 10,
-        skewX: "-15deg",
-      },
+      0.3,
+      { opacity: 0, y: 5 },
+      "party"
+    )
+    .staggerFrom(
+      ".wish h5 span",
+      0.1,
+      { opacity: 0, y: 10, ease: Power2.easeOut },
+      0.05,
       "party"
     )
     .staggerTo(
