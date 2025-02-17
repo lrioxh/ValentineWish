@@ -1,3 +1,38 @@
+function createHeart() {
+  const img = document.getElementById("imagePath");
+  const imgRect = img.getBoundingClientRect();
+
+  const heart = document.createElement("div");
+  heart.innerHTML = "❤";
+  heart.classList.add("floating-heart");
+  document.body.appendChild(heart);
+
+  // 随机位置（围绕 girl-dp 图片）
+  const startX = imgRect.left + Math.random() * imgRect.width;
+  const startY = imgRect.top + imgRect.height - 20; // 从图片下方浮起
+
+  heart.style.left = `${startX}px`;
+  heart.style.top = `${startY}px`;
+
+  // GSAP 动画：向上漂浮 + 渐变消失
+  gsap.to(heart, {
+    duration: 2,
+    y: -100 - Math.random() * 50, // 随机向上漂浮
+    opacity: 0,
+    scale: 0.8 + Math.random() * 0.4, // 随机大小
+    rotation: Math.random() * 30 - 15, // 轻微旋转
+    ease: "easeOut",
+    onComplete: () => heart.remove() // 动画结束后删除
+  });
+}
+
+function startHearts() {
+  // 让爱心动画与 .girl-dp 相关动画同步
+  let heartInterval = setInterval(createHeart, 300); // 每 300ms 生成一个 ❤️
+  
+  setTimeout(() => clearInterval(heartInterval), 5000); // 5s 后停止生成爱心
+}
+
 // Animation Timeline
 const animationTimeline = () => {
   // Spit chars that needs to be animated individually
@@ -227,6 +262,7 @@ const animationTimeline = () => {
       },
       "-=2"
     )
+    .call(startHearts)
     // .to(".girl-dp", 1, {
     //   scale: 1.1,
     //   repeat: -1,
@@ -354,35 +390,6 @@ const fetchData = () => {
 //     resolve("Fetch done!");
 //   });
 // };
-function createHeart() {
-  const img = document.getElementById("imagePath");
-  const imgRect = img.getBoundingClientRect();
-
-  const heart = document.createElement("div");
-  heart.innerHTML = "❤️";
-  heart.classList.add("floating-heart");
-  document.body.appendChild(heart);
-
-  // 随机位置（围绕 girl-dp 图片）
-  const startX = imgRect.left + Math.random() * imgRect.width;
-  const startY = imgRect.top + imgRect.height - 20; // 从图片下部浮起
-
-  heart.style.left = `${startX}px`;
-  heart.style.top = `${startY}px`;
-
-  // GSAP 动画：向上漂浮 + 渐变消失
-  gsap.to(heart, {
-    duration: 2,
-    y: -100 - Math.random() * 50, // 随机向上漂浮
-    opacity: 0,
-    scale: 0.8 + Math.random() * 0.4, // 随机大小
-    rotation: Math.random() * 30 - 15, // 轻微旋转
-    ease: "easeOut",
-    onComplete: () => heart.remove() // 动画结束后删除
-  });
-}
-// 定时生成心形
-setInterval(createHeart, 300); // 每 300ms 生成一个 ❤️
 // resolveFetch().then(
 animationTimeline();
 // );
