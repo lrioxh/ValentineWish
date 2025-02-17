@@ -17,7 +17,7 @@ function createHeart() {
   // GSAP 动画：向上漂浮 + 渐变消失
   gsap.to(heart, {
     duration: 2,
-    y: -100 - Math.random() * 50, // 随机向上漂浮
+    y: -120 - Math.random() * 120, // 随机向上漂浮
     opacity: 0,
     scale: 0.8 + Math.random() * 0.4, // 随机大小
     rotation: Math.random() * 30 - 15, // 轻微旋转
