@@ -103,6 +103,11 @@ body {
 }
 
 .idea-5 span,
+.idea-5 strong {
+  padding: 3px 5px;
+  border-radius: 3px;
+  display: inline-block;
+}
 .idea-6 span,
 .wish-hbd span {
   display: inline-block;

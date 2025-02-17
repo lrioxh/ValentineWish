@@ -280,7 +280,7 @@ const animationTimeline = () => {
       ".wish h5 span span",
       0.1,
       { opacity: 0, y: 10, ease: Power2.easeOut },
-      0.05,
+      0.1,
       "party"
     )
     .staggerTo(
