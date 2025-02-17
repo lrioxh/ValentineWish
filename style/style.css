@@ -19,6 +19,20 @@ a:hover {
 a:active {
   color: rgb(0, 204, 255); /* 点击时的颜色 */
 }
+
+
+@keyframes heartBeat {
+  0% {
+      transform: scale(1); /* 原始大小 */
+  }
+  50% {
+      transform: scale(1.2); /* 放大 */
+  }
+  100% {
+      transform: scale(1); /* 恢复原始大小 */
+  }
+}
+
 .container {
   height: 100vh;
   width: 100vh;
@@ -137,6 +151,9 @@ a:active {
   display: inline-block;
   max-width: 45%;
   height: auto;
+  object-fit: cover; /* 确保图片填充 */
+  clip-path: path('M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.769-8.875-8.346-12-2.944z');
+  /* animation: heartBeat 2s infinite; 2秒循环一次 */
 }
 
 .six .hat {
@@ -316,22 +333,3 @@ a:active {
   }
 }
 
-@keyframes heartBeat {
-  0% {
-      transform: scale(1); /* 原始大小 */
-  }
-  50% {
-      transform: scale(1.2); /* 放大 */
-  }
-  100% {
-      transform: scale(1); /* 恢复原始大小 */
-  }
-}
-
-.girl-dp {
-  width: 300px; /*根据需要调整 */
-  /* height: 300px; 根据需要调整 */
-  object-fit: cover; /* 确保图片填充 */
-  clip-path: path('M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.769-8.875-8.346-12-2.944z');
-  animation: heartBeat 2s infinite; /* 2秒循环一次 */
-}

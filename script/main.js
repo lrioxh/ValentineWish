@@ -227,6 +227,12 @@ const animationTimeline = () => {
       },
       "-=2"
     )
+    .to(".girl-dp", 1, {
+      scale: 1.1,
+      repeat: -1,
+      yoyo: true,
+      ease: Power1.easeInOut
+    })
     .from(".hat", 0.5, {
       x: -100,
       y: 350,
