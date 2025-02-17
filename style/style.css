@@ -152,7 +152,7 @@ a:active {
   max-width: 45%;
   height: auto;
   object-fit: cover; /* 确保图片填充 */
-  clip-path: path('M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.769-8.875-8.346-12-2.944z');
+  clip-path: url(#heartClip);
   /* animation: heartBeat 2s infinite; 2秒循环一次 */
 }
 
